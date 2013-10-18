@@ -23,8 +23,13 @@ Controller = {
           return x[bttn]
       )
     # window.setTimeout resetTimer, secs
-    ev.target.addClass 'disable'
-    window.setTimeout
+    $("." + bttn).addClass 'disable'
+    window.setTimeout(->
+      Controller.resetTimer null
+      , milsecs*100)
+
+  resetTimer: (tar) ->
+    console.log 'TIMER ENDED'
 }
 
 
