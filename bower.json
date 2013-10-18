@@ -1,0 +1,19 @@
+{
+  "name": "bootstrapped-jungle-timer",
+  "version": "0.0.0",
+  "authors": [
+    "Nick Steffens <nsteffens@gmail.com>"
+  ],
+  "description": "League of Legends Jungle timers responsive web app",
+  "keywords": [
+    "LoL",
+    "jungle",
+    "timers",
+    "league",
+    "league",
+    "of",
+    "legends"
+  ],
+  "license": "MIT",
+  "private": true
+}

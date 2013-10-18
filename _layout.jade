@@ -1,0 +1,12 @@
+!!!
+html
+  head
+    link(rel="stylesheet", href="bower_components/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="main.css")
+  body
+    .container
+      != yield
+    script(src="bower_components/jquery/jquery.min.js")
+    script(src="app.js")
+    script
+      App.init();
