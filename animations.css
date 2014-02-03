@@ -1,0 +1,11 @@
+@keyframes progBar
+{
+0%   {width: 100%;}
+100% {width: 0%;}
+}
+
+@-webkit-keyframes progBar
+{
+0%   {width: 100%;}
+100% {width: 0%;}
+}
