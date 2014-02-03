@@ -1,6 +1,34 @@
-h1 Welcome to Responsive Jungle Timers
-h3 Press the Buttons to activate times.
-button.blue Blue
-button.red Red
-button.dragon dragon
-button.baron baron
+.jumbotron
+  h1 Welcome to Responsive Jungle Timers
+  h3 Press the Buttons to activate times.
+
+.container-fluid
+  .row
+    #blue.col-md-4
+      .panel.panel-info
+        .panel-heading
+          h3 Blue Side
+        .panel-body
+          button.blue.btn.btn-primary.btn-lg.btn-block(type="button") blue
+          button.red.btn.btn-danger.btn-lg.btn-block(type="button") red
+
+    #neutral.col-md-4
+      .panel.panel-warning
+        .panel-heading
+          h3 Neutral
+
+        .panel-body
+          button.baron.btn.btn-success.btn-lg.btn-block(type="button") baron
+          button.dragon.btn.btn-warning.btn-lg.btn-block(type="button") dragon
+
+
+    #red.col-md-4
+      .panel.panel-danger
+        .panel-heading
+           h3 Red Side
+
+        .panel-body
+          button.blue.btn.btn-primary.btn-lg.btn-block(type="button") blue
+          button.red.btn.btn-danger.btn-lg.btn-block(type="button") red
+
+

@@ -1,44 +1,52 @@
 App = {
-  init: ->
-    # events
-    Controller.events()
-
-  timers: [
-    blue: 300
-    red: 300
-    dragon: 360
+  buffs:
+    blue: 300,
+    red: 300,
+    dragon: 360,
     baron: 420
-  ]
+
+  init: ()->
+
+    App.listeners()
+
+  listeners: ()->
+
+    $('button').on({
+      "click": ()->
+        sectionID = $(this).parent().parent().parent('.col-md-4').attr('id')
+        buffName = $(this).text()
+
+        $.each App.buffs, (i, v)->
+          App.startTimer v, sectionID, buffName if buffName is i
+
+
+      })
+
+  startTimer: (int, i, buff)->
+    countDown = int
+    countDownName = buff
+
+    App.renderBar i, buff
+    countDownName = setInterval ()->
+
+      if countDown <= 0
+        clearInterval countDownName
+        App.enableButton i, buff
+        console.log "end of ", i + " " + buff
+
+      else
+        countDown = countDown - 1
+
+    , 25
+
+
+  renderBar: (i, buff)->
+    $('#' + i + " ." + buff)
+      .addClass 'disabled'
+
+  enableButton: (i, buff)->
+    $('#' + i + ' .' + buff)
+      .removeClass 'disabled'
 }
 
-Controller = {
-
-  events: ->
-    $('button').on "click", Controller.startTimer
-
-  startTimer: (ev) =>
-    bttn = ev.target.className
-    milsecs = App.timers.map((x) ->
-        if x[0] = bttn
-          return x[bttn]
-      )
-    # window.setTimeout resetTimer, secs
-    $("." + bttn).addClass 'disable'
-    window.setTimeout(->
-      Controller.resetTimer null
-      , milsecs*100)
-
-  resetTimer: (tar) ->
-    console.log 'TIMER ENDED'
-}
-
-
-View = {
-
-  timer: (secs)->
-    window.setInterval secs
-
-    if secs = 0
-      console.log 'END TIMER'
-
-}
+App.init()
